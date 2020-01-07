@@ -1,0 +1,36 @@
+{
+  "name": "archery-market-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start_dev": "nodemon -q -r dotenv/config index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polchky/archery-market-backend.git"
+  },
+  "author": "Pascal Gremaud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polchky/archery-market-backend/issues"
+  },
+  "homepage": "https://github.com/polchky/archery-market-backend#readme",
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-combine-routers": "^4.0.2",
+    "koa-jwt": "^3.6.0",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.8.5"
+  }
+}
