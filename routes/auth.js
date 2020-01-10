@@ -25,11 +25,11 @@ router.post('/register', async (ctx) => {
 
 router.post('/login', async (ctx) => {
     try {
-        const user = await User.findOne({ email: ctx.request.body.email });
+        const user = await User.findOne({ email: ctx.request.body.email }).select('+password');
         if (!user) ctx.throw(404);
         const match = await user.comparePassword(ctx.request.body.password);
         if (!match) ctx.throw(401);
-        ctx.body = jwt.sign({ role: user.role }, process.env.JWT_SECRET);
+        ctx.body = jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET);
     } catch (err) {
         ctx.throw(400);
     }

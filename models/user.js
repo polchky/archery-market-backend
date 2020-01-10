@@ -5,13 +5,15 @@ require('mongoose-type-email');
 const userSchema = new Mongoose.Schema(
     {
         email: { type: Mongoose.SchemaTypes.Email, required: true, unique: true },
-        password: { type: String, required: true },
+        password: { type: String, required: true, select: false },
         firstname: { type: String, required: true },
         lastname: { type: String, required: true },
         phone: String,
         role: { type: String, required: true },
-        __v: { type: Number, select: false },
+        moderator: { type: Mongoose.Schema.ObjectId, ref: 'User' },
+        club: { type: Mongoose.Schema.ObjectId, ref: 'Club' },
         created: { type: Date, default: Date.now },
+        __v: { type: Number, select: false },
     },
 );
 
