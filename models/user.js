@@ -11,8 +11,8 @@ const userSchema = new Mongoose.Schema(
         phone: String,
         role: { type: String, required: true },
         __v: { type: Number, select: false },
+        created: { type: Date, default: Date.now },
     },
-    { timestamp: { createdAt: 'created_at' } },
 );
 
 async function hashPassword(next) {
