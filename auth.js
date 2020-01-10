@@ -1,13 +1,21 @@
-const auth = {
-    admin: async (ctx, next) => {
+const Jwt = require('koa-jwt');
+const compose = require('koa-compose');
 
-        return next();
-    },
+const jwt = Jwt({
+    secret: process.env.JWT_SECRET,
+});
 
-    user: async (ctx, next) => {
-        ctx.body = 'lol';
+function checkRoles(r) {
+    return (ctx, next) => {
+        const { role } = ctx.state.user;
+        const roles = typeof r === 'string' ? [r] : r;
+        if (roles.length > 0 && role !== 'admin' && !roles.includes(role)) {
+            ctx.throw(403);
+        }
         return next();
-    },
-};
+    };
+}
+
+const auth = (roles) => compose([jwt, checkRoles(roles)]);
 
 module.exports = auth;
