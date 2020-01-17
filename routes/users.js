@@ -6,11 +6,11 @@ const router = new Router({
     prefix: '/users',
 });
 
-router.get('/', auth('admin'), async (ctx) => {
+router.get('/', auth.jwt, auth.hasRole('admin'), async (ctx) => {
     ctx.body = await User.find();
 });
 
-router.get('/:userId', auth('user'), async (ctx) => {
+router.get('/:userId', auth.jwt, async (ctx) => {
     try {
         ctx.body = await User.findById(ctx.params.userId);
     } catch (err) {
