@@ -1,6 +1,6 @@
 const Router = require('koa-router');
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const { User } = require('../models');
 
 const router = new Router({
     prefix: '/auth',
@@ -8,16 +8,12 @@ const router = new Router({
 
 router.post('/register', async (ctx) => {
     try {
-        const user = new User({
-            firstname: ctx.request.body.firstname,
-            lastname: ctx.request.body.lastname,
-            email: ctx.request.body.email,
-            password: ctx.request.body.password,
-            role: 'user',
-        });
+        const user = new User(ctx.request.body);
+        user.role = 'user';
         await user.save();
         ctx.status = 204;
     } catch (err) {
+        // duplicate email
         if (err.code && err.code === 11000) ctx.throw(409);
         ctx.throw(400);
     }

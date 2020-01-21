@@ -24,7 +24,7 @@ const auth = {
     },
 
     hasClub: (clubId) => (ctx, next) => {
-        const res = ctx.state.user.clubId === clubId;
+        const res = ctx.state.user.clubId === clubId ? clubId : ctx.club._id;
         return resolve(ctx, next, res);
     },
 

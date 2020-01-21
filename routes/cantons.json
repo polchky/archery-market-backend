@@ -1,0 +1,236 @@
+[
+    {
+        "_id": "AG",
+        "name": {
+            "en": "Aargau",
+            "de": "Aargau",
+            "fr": "Argovie",
+            "it": "Argovia"
+        }
+    },
+    {
+        "_id": "AI",
+        "name": {
+            "en": "Appenzell Innerrhoden",
+            "de": "Appenzell Innerrhoden",
+            "fr": "Appenzell Rhodes-Intérieures",
+            "it": "Appenzello Interno"
+        }
+    },
+    {
+        "_id": "AR",
+        "name": {
+            "en": "Appenzell Ausserrhoden",
+            "de": "Appenzell Ausserrhoden",
+            "fr": "Appenzell Rhodes-Extérieures",
+            "it": "Appenzello Esterno"
+        }
+    },
+    {
+        "_id": "BE",
+        "name": {
+            "en": "Bern",
+            "de": "Bern",
+            "fr": "Berne",
+            "it": "Berna"
+        }
+    },
+    {
+        "_id": "BL",
+        "name": {
+            "en": "Basel-Landschaft",
+            "de": "Basel-Landschaft",
+            "fr": "Bâle-Campagne",
+            "it": "Basilea-Campagna"
+        }
+    },
+    {
+        "_id": "BS",
+        "name": {
+            "en": "Basel-Stadt",
+            "de": "Basel-Stadt",
+            "fr": "Bâle-Ville",
+            "it": "Basilea-Città"
+        }
+    },
+    {
+        "_id": "FR",
+        "name": {
+            "en": "Fribourg",
+            "de": "Freiburg",
+            "fr": "Fribourg",
+            "it": "Friburgo"
+        }
+    },
+    {
+        "_id": "GE",
+        "name": {
+            "en": "Geneva",
+            "de": "Genf",
+            "fr": "Genève",
+            "it": "Ginevra"
+        }
+    },
+    {
+        "_id": "GL",
+        "name": {
+            "en": "Glarus",
+            "de": "Glarus",
+            "fr": "Glaris",
+            "it": "Glarona"
+        }
+    },
+    {
+        "_id": "GR",
+        "name": {
+            "en": "Graubünden",
+            "de": "Graubünden",
+            "fr": "Grisons",
+            "it": "Grigioni"
+        }
+    },
+    {
+        "_id": "JU",
+        "name": {
+            "en": "Jura",
+            "de": "Jura",
+            "fr": "Jura",
+            "it": "Giura"
+        }
+    },
+    {
+        "_id": "LU",
+        "name": {
+            "en": "Luzern",
+            "de": "Luzern",
+            "fr": "Lucerne",
+            "it": "Lucerna"
+        }
+    },
+    {
+        "_id": "NE",
+        "name": {
+            "en": "Neuchâtel",
+            "de": "Neuenburg",
+            "fr": "Neuchâtel",
+            "it": "Neuchâtel"
+        }
+    },
+    {
+        "_id": "NW",
+        "name": {
+            "en": "Nidwalden",
+            "de": "Nidwalden",
+            "fr": "Nidwald",
+            "it": "Nidvaldo"
+        }
+    },
+    {
+        "_id": "OW",
+        "name": {
+            "en": "Obwalden",
+            "de": "Obwalden",
+            "fr": "Obwald",
+            "it": "Obvaldo"
+        }
+    },
+    {
+        "_id": "SG",
+        "name": {
+            "en": "St. Gallen",
+            "de": "St. Gallen",
+            "fr": "Saint-Gall",
+            "it": "San Gallo"
+        }
+    },
+    {
+        "_id": "SH",
+        "name": {
+            "en": "Schaffhausen",
+            "de": "Schaffhausen",
+            "fr": "Schaffhouse",
+            "it": "Sciaffusa"
+        }
+    },
+    {
+        "_id": "SO",
+        "name": {
+            "en": "Solothurn",
+            "de": "Solothurn",
+            "fr": "Soleure",
+            "it": "Soletta"
+        }
+    },
+    {
+        "_id": "SZ",
+        "name": {
+            "en": "Schwyz",
+            "de": "Schwyz",
+            "fr": "Schwyz",
+            "it": "Svitto"
+        }
+    },
+    {
+        "_id": "TG",
+        "name": {
+            "en": "Thurgau",
+            "de": "Thurgau",
+            "fr": "Thurgovie",
+            "it": "Turgovia"
+        }
+    },
+    {
+        "_id": "TI",
+        "name": {
+            "en": "Ticino",
+            "de": "Tessin",
+            "fr": "Tessin",
+            "it": "Ticino"
+        }
+    },
+    {
+        "_id": "UR",
+        "name": {
+            "en": "Uri",
+            "de": "Uri",
+            "fr": "Uri",
+            "it": "Uri"
+        }
+    },
+    {
+        "_id": "VD",
+        "name": {
+            "en": "Vaud",
+            "de": "Waadt",
+            "fr": "Vaud",
+            "it": "Vaud"
+        }
+    },
+    {
+        "_id": "VS",
+        "name": {
+            "en": "Valais",
+            "de": "Wallis",
+            "fr": "Valais",
+            "it": "Vallese"
+        }
+    },
+    {
+        "_id": "ZG",
+        "name": {
+            "en": "Zug",
+            "de": "Zug",
+            "fr": "Zoug",
+            "it": "Zugo"
+        }
+    },
+    {
+        "_id": "ZH",
+        "name": {
+            "en": "Zürich",
+            "de": "Zürich",
+            "fr": "Zurich",
+            "it": "Zurigo"
+        }
+    }
+]
