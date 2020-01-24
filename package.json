@@ -33,8 +33,15 @@
     "koa-compose": "^4.1.0",
     "koa-jwt": "^3.6.0",
     "koa-router": "^7.4.0",
+    "module-alias": "^2.2.2",
     "mongoose": "^5.8.5",
     "mongoose-intl": "^3.1.1",
     "mongoose-type-email": "^1.0.12"
+  },
+  "_moduleAliases": {
+    "@constants": "./constants",
+    "@routes": "./routes",
+    "@models": "./models",
+    "@middlewares": "./middlewares"
   }
 }

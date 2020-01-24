@@ -1,9 +1,8 @@
 const CombineRouters = require('koa-combine-routers');
-
-const auth = require('./auth');
-const canton = require('./cantons');
-const clubs = require('./clubs');
-const users = require('./users');
+const auth = require('@routes/auth');
+const canton = require('@routes/cantons');
+const clubs = require('@routes/clubs');
+const users = require('@routes/users');
 
 const router = CombineRouters([
     auth,

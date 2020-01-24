@@ -1,6 +1,6 @@
 const Router = require('koa-router');
-const auth = require('../auth');
-const { User } = require('../models');
+const auth = require('@middlewares/auth');
+const { User } = require('@models');
 
 const router = new Router({
     prefix: '/users',
@@ -29,6 +29,6 @@ router.get('/:userId', async (ctx) => {
 
 router.put('/:userId', auth.jwt, (ctx) => {
 
-})
+});
 
 module.exports = router;

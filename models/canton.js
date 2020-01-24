@@ -1,5 +1,5 @@
 const Mongoose = require('mongoose');
-const MongooseIntl = require('mongoose-intl');
+const mongooseIntl = require('mongoose-intl');
 
 const cantonSchema = new Mongoose.Schema(
     {
@@ -11,6 +11,6 @@ const cantonSchema = new Mongoose.Schema(
     },
 );
 
-cantonSchema.plugin(MongooseIntl, { languages: ['en', 'de', 'fr', 'it'], defaultLanguage: 'en' });
+cantonSchema.plugin(mongooseIntl, { languages: ['en', 'de', 'fr', 'it'] });
 
 module.exports = Mongoose.model('Canton', cantonSchema);

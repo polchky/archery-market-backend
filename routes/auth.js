@@ -1,6 +1,6 @@
 const Router = require('koa-router');
 const jwt = require('jsonwebtoken');
-const { User } = require('../models');
+const { User } = require('@models');
 
 const router = new Router({
     prefix: '/auth',

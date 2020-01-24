@@ -1,6 +1,6 @@
-const Canton = require('./canton');
-const Club = require('./club');
-const User = require('./user');
+const Canton = require('@models/canton');
+const Club = require('@models/club');
+const User = require('@models/user');
 
 const models = {
     Canton,

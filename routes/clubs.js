@@ -1,6 +1,6 @@
 const Router = require('koa-router');
-const { Club } = require('../models');
-const auth = require('../auth');
+const { Club } = require('@models');
+const { auth } = require('@middlewares');
 
 const router = new Router({
     prefix: '/clubs',
