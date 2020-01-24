@@ -1,6 +1,7 @@
 const Router = require('koa-router');
-const auth = require('@middlewares/auth');
+const { auth, param } = require('@middlewares');
 const { User } = require('@models');
+const { roles } = require('@constants');
 
 const router = new Router({
     prefix: '/users',
@@ -8,27 +9,27 @@ const router = new Router({
 
 router.use(auth.jwt);
 
-router.param('userId', async (id, ctx, next) => {
-    try {
-        ctx.user = await User.findById(id);
-        if (!ctx.user) ctx.throw(404);
-        await next();
-    } catch (err) {
-        ctx.throw(404);
-    }
-});
+router.param('userId', param(User));
 
-router.get('/', auth.hasRole('admin'), async (ctx) => {
-    const users = await User.find();
-    ctx.body = users;
-});
+router.get('/',
+    auth.or([
+        auth.hasRole(roles.admin),
+        auth.and([
+            auth.hasRole(roles.moderator),
+            auth.hasClub(),
+        ]),
+    ]),
+    async (ctx) => {
+        const users = await User.find();
+        ctx.body = users;
+    });
 
 router.get('/:userId', async (ctx) => {
     ctx.body = ctx.user;
 });
 
 router.put('/:userId', auth.jwt, (ctx) => {
-
+    ctx.body = {};
 });
 
 module.exports = router;

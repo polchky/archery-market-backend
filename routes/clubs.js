@@ -1,20 +1,12 @@
 const Router = require('koa-router');
 const { Club } = require('@models');
-const { auth } = require('@middlewares');
+const { auth, param } = require('@middlewares');
 
 const router = new Router({
     prefix: '/clubs',
 });
 
-router.param('clubId', async (id, ctx, next) => {
-    try {
-        ctx.club = await Club.findById(id);
-        if (!ctx.club) ctx.throw(404);
-        await next();
-    } catch (err) {
-        ctx.throw(404);
-    }
-});
+router.param('clubId', param(Club));
 
 router.get('/', async (ctx) => {
     ctx.body = await Club.find({});

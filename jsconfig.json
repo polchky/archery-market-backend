@@ -8,7 +8,8 @@
             "@models": ["./models"],
             "@models/*": ["./models/*"],
             "@routes": ["./routes"],
-            "@routes/*": ["./routes/*"]
+            "@routes/*": ["./routes/*"],
+            "@database": ["./database"]
         }
     },
     "exclude": ["node_modules"]

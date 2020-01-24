@@ -1,19 +1,12 @@
 const Router = require('koa-router');
 const { Canton } = require('@models');
+const { param } = require('@middlewares');
 
 const router = new Router({
     prefix: '/cantons',
 });
 
-router.param('cantonId', async (id, ctx, next) => {
-    try {
-        ctx.canton = await Canton.findById(id);
-    } catch (err) {
-        ctx.throw(400);
-    }
-    if (!ctx.canton) ctx.throw(404);
-    return next();
-});
+router.param('cantonId', param(Canton));
 
 router.get('/', async (ctx) => {
     const cantons = await Canton.find({});
@@ -22,8 +15,7 @@ router.get('/', async (ctx) => {
 });
 
 router.get('/:cantonId', (ctx) => {
-    ctx.canton.setLanguage(ctx.language);
-    ctx.body = ctx.canton.toJSON();
+    ctx.body = ctx.canton;
 });
 
 module.exports = router;

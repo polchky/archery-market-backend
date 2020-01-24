@@ -13,7 +13,6 @@ const userSchema = new Mongoose.Schema(
         moderator: { type: Mongoose.Schema.ObjectId, ref: 'User' },
         club: { type: Mongoose.Schema.ObjectId, ref: 'Club' },
         created: { type: Date, default: Date.now },
-        __v: { type: Number, select: false },
     },
 );
 

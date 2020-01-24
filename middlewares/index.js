@@ -1,11 +1,13 @@
 const auth = require('@middlewares/auth');
 const assert = require('@middlewares/assert');
-const languages = require('@middlewares/languages');
+const language = require('@middlewares/language');
+const param = require('@middlewares/param');
 
 const middlewares = {
     auth,
     assert,
-    languages,
+    language,
+    param,
 };
 
 module.exports = middlewares;

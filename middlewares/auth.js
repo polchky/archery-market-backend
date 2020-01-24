@@ -1,11 +1,5 @@
 const Jwt = require('koa-jwt');
-
-const roles = {
-    user: 0,
-    member: 1,
-    moderator: 2,
-    admin: 3,
-};
+const { roles } = require('@constants');
 
 const resolve = (ctx, next, res) => {
     if (next !== undefined) {
@@ -18,16 +12,6 @@ const resolve = (ctx, next, res) => {
 const auth = {
     jwt: Jwt({ secret: process.env.JWT_SECRET }),
 
-    hasRole: (role) => (ctx, next) => {
-        const res = roles[ctx.state.user.role] >= roles[role];
-        return resolve(ctx, next, res);
-    },
-
-    hasClub: (clubId) => (ctx, next) => {
-        const res = ctx.state.user.clubId === clubId ? clubId : ctx.club._id;
-        return resolve(ctx, next, res);
-    },
-
     and: (conditions) => (ctx, next) => {
         const res = conditions.every((condition) => condition(ctx));
         return resolve(ctx, next, res);
@@ -35,6 +19,21 @@ const auth = {
 
     or: (conditions) => (ctx, next) => {
         const res = conditions.some((condition) => condition(ctx));
+        return resolve(ctx, next, res);
+    },
+
+    hasRole: (role) => (ctx, next) => {
+        const res = roles[ctx.state.user.role] >= roles[role];
+        return resolve(ctx, next, res);
+    },
+
+    hasClub: (clubId) => (ctx, next) => {
+        const res = ctx.state.user.club.id === (clubId || ctx.club.id);
+        return resolve(ctx, next, res);
+    },
+
+    isUser: (userId) => (ctx, next) => {
+        const res = ctx.state.user.id === (userId || ctx.user.id);
         return resolve(ctx, next, res);
     },
 
