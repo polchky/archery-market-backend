@@ -1,15 +1,15 @@
 const assert = {
-    headers: (parameters) => (ctx, next) => {
-        const params = Array.isArray(parameters) ? parameters : [parameters];
-        params.forEach((p) => {
-            ctx.assert(ctx.request.headers[p], 400);
+    headers: (required) => (ctx, next) => {
+        const headers = Array.isArray(required) ? required : [required];
+        headers.forEach((h) => {
+            ctx.assert(h in ctx.request.headers, 400, `Missing header: ${h}`);
         });
         return next();
     },
-    query: (parameters) => (ctx, next) => {
-        const params = Array.isArray(parameters) ? parameters : [parameters];
-        params.forEach((p) => {
-            ctx.assert(ctx.request.query[p], 400);
+    query: (required) => (ctx, next) => {
+        const queryParams = Array.isArray(required) ? required : [required];
+        queryParams.forEach((p) => {
+            ctx.assert(p in ctx.request.query, 400, `Missing parameter: ${p}`);
         });
         return next();
     },
