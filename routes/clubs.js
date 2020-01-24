@@ -9,7 +9,8 @@ const router = new Router({
 router.param('clubId', param(Club));
 
 router.get('/', async (ctx) => {
-    ctx.body = await Club.find({});
+    const clubs = await Club.find({});
+    ctx.body = JSON.stringify(clubs);
 });
 
 router.get('/:clubId', auth.jwt, auth.hasClub(), async (ctx) => {
