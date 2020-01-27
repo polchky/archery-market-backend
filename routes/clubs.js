@@ -13,7 +13,7 @@ router.get('/', async (ctx) => {
     ctx.body = JSON.stringify(clubs);
 });
 
-router.get('/:clubId', auth.jwt, auth.hasClub(), async (ctx) => {
+router.get('/:clubId', auth.jwt, auth.hasClubId(), async (ctx) => {
     ctx.body = ctx.club;
 });
 

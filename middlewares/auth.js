@@ -18,7 +18,10 @@ const auth = {
     },
 
     or: (conditions) => (ctx, next) => {
-        const res = conditions.some((condition) => condition(ctx));
+        const res = conditions.some((condition) => {
+            if (Array.isArray(condition)) return auth.and(condition)(ctx);
+            return condition(ctx);
+        });
         return resolve(ctx, next, res);
     },
 
@@ -27,12 +30,12 @@ const auth = {
         return resolve(ctx, next, res);
     },
 
-    hasClub: (clubId) => (ctx, next) => {
+    hasClubId: (clubId) => (ctx, next) => {
         const res = ctx.state.user.club.id === (clubId || ctx.club.id);
         return resolve(ctx, next, res);
     },
 
-    isUser: (userId) => (ctx, next) => {
+    hasUserId: (userId) => (ctx, next) => {
         const res = ctx.state.user.id === (userId || ctx.user.id);
         return resolve(ctx, next, res);
     },

@@ -13,10 +13,10 @@ router.param('userId', param(User));
 router.get('/',
     auth.or([
         auth.hasRole('admin'),
-        auth.and([
-            auth.hasRole('moderator'),
-            auth.hasClub(),
-        ]),
+        [
+            auth.hasRole('user'),
+            auth.hasClubId(1),
+        ],
     ]),
     async (ctx) => {
         const users = await User.find();
