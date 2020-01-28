@@ -40,6 +40,11 @@ const auth = {
         return resolve(ctx, next, res);
     },
 
+    hasUserClubId: (clubId) => (ctx, next) => {
+        const res = ctx.state.user.club.id === (clubId || ctx.user.club.id);
+        return resolve(ctx, next, res);
+    },
+
 };
 
 

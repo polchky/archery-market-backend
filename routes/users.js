@@ -23,11 +23,17 @@ router.get('/',
         ctx.body = JSON.stringify(users);
     });
 
-router.get('/:userId', async (ctx) => {
-    ctx.body = ctx.user.toJSON();
-});
+router.get('/:userId',
+    auth.or([
+        auth.hasRole('admin'),
+        [auth.hasRole('moderator'), auth.hasUserClubId()],
+        auth.hasUserId(),
+    ]),
+    async (ctx) => {
+        ctx.body = ctx.user.toJSON();
+    });
 
-router.put('/:userId', auth.jwt, (ctx) => {
+router.put('/:userId', (ctx) => {
     ctx.body = {};
 });
 
